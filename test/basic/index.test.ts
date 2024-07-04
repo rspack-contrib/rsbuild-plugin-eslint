@@ -2,39 +2,56 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { createRsbuild } from '@rsbuild/core';
-import { pluginExample } from '../../src';
+import { pluginEslint } from '@rsbuild/plugin-eslint';
+import { proxyConsole } from '../helper';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-test('should render page as expected', async ({ page }) => {
+test('should throw error when exist ESLint errors', async () => {
+	const { logs, restore } = proxyConsole();
+
 	const rsbuild = await createRsbuild({
 		cwd: __dirname,
 		rsbuildConfig: {
-			plugins: [pluginExample()],
+			plugins: [pluginEslint()],
 		},
 	});
+	await expect(rsbuild.build()).rejects.toThrowError('build failed!');
 
-	const { server, urls } = await rsbuild.startDevServer();
+	expect(
+		logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
+	).toBeTruthy();
 
-	await page.goto(urls[0]);
-	expect(await page.evaluate('window.test')).toBe(1);
-
-	await server.close();
+	restore();
 });
 
-test('should build succeed', async ({ page }) => {
+test('should not throw error when the file is excluded', async () => {
 	const rsbuild = await createRsbuild({
 		cwd: __dirname,
 		rsbuildConfig: {
-			plugins: [pluginExample()],
+			plugins: [
+				pluginEslint({
+					eslintPluginOptions: {
+						exclude: ['node_modules', './src/index.js'],
+					},
+				}),
+			],
+		},
+	});
+	await expect(rsbuild.build()).resolves.toEqual(undefined);
+});
+
+test('should not throw error when the ESLint plugin is not enabled', async () => {
+	const rsbuild = await createRsbuild({
+		cwd: __dirname,
+		rsbuildConfig: {
+			plugins: [
+				pluginEslint({
+					enable: false,
+				}),
+			],
 		},
 	});
 
-	await rsbuild.build();
-	const { server, urls } = await rsbuild.preview();
-
-	await page.goto(urls[0]);
-	expect(await page.evaluate('window.test')).toBe(1);
-
-	await server.close();
+	await expect(rsbuild.build()).resolves.toEqual(undefined);
 });
