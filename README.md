@@ -2,6 +2,8 @@
 
 An Rsbuild plugin to run ESLint checks during the compilation.
 
+The plugin has integrated [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin) internally.
+
 <p>
   <a href="https://npmjs.com/package/@rsbuild/plugin-eslint">
    <img src="https://img.shields.io/npm/v/@rsbuild/plugin-eslint?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
@@ -21,26 +23,99 @@ Add plugin to your `rsbuild.config.ts`:
 
 ```ts
 // rsbuild.config.ts
-import { pluginExample } from "@rsbuild/plugin-eslint";
+import { pluginEslint } from "@rsbuild/plugin-eslint";
 
 export default {
-  plugins: [pluginExample()],
+  plugins: [pluginEslint()],
 };
 ```
 
+## Example Projects
+
+- [React + ESLint project](https://github.com/rspack-contrib/rspack-examples/tree/main/rsbuild/react-eslint)
+- [Vue 3 + ESLint project](https://github.com/rspack-contrib/rspack-examples/tree/main/rsbuild/vue3-eslint)
+
 ## Options
 
-### foo
+### enable
 
-Some description.
+Whether to enable ESLint checking.
 
-- Type: `string`
-- Default: `undefined`
-- Example:
+- **Type:** `boolean`
+- **Default:** `true`
+- **Example:**
+
+Disable ESLint checking:
 
 ```js
-pluginExample({
-  foo: "bar",
+pluginEslint({
+  enable: false,
+});
+```
+
+Enable ESLint checking only during production builds:
+
+```js
+pluginEslint({
+  enable: process.env.NODE_ENV === "production",
+});
+```
+
+Enable ESLint checking only during development builds:
+
+```js
+pluginEslint({
+  enable: process.env.NODE_ENV === "development",
+});
+```
+
+### eslintPluginOptions
+
+To modify the options of `eslint-webpack-plugin`, please refer to [eslint-webpack-plugin - README](https://github.com/webpack-contrib/eslint-webpack-plugin#readme) to learn about available options.
+
+- **Type:** [Options](https://github.com/webpack-contrib/eslint-webpack-plugin/blob/master/types/options.d.ts)
+- **Default:**
+
+```ts
+const defaultOptions = {
+  extensions: ["js", "jsx", "mjs", "cjs", "ts", "tsx", "mts", "cts"],
+  exclude: [
+    "node_modules",
+    "dist", // -> rsbuildConfig.output.distPath.root
+  ],
+};
+```
+
+The `eslintPluginOptions` object will be shallowly merged with the default configuration object.
+
+- For example, enable ESLint v9's flat config:
+
+```ts
+pluginEslint({
+  eslintPluginOptions: {
+    cwd: __dirname,
+    configType: "flat",
+  },
+});
+```
+
+- For example, exclude some files using `exclude`:
+
+```ts
+pluginEslint({
+  eslintPluginOptions: {
+    exclude: ["node_modules", "dist", "./src/foo.js"],
+  },
+});
+```
+
+- Extend `extensions` to validate `.vue` or `.svelte` files:
+
+```ts
+pluginEslint({
+  eslintPluginOptions: {
+    extensions: ["js", "jsx", "mjs", "cjs", "ts", "tsx", "mts", "cts", "vue"],
+  },
 });
 ```
 
