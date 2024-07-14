@@ -46,7 +46,7 @@ export const pluginEslint = (
 				],
 			};
 
-			chain.plugin(CHAIN_ID.PLUGIN.ESLINT).use(ESLintPlugin, [
+			chain.plugin('eslint').use(ESLintPlugin, [
 				{
 					...defaultOptions,
 					...eslintPluginOptions,
