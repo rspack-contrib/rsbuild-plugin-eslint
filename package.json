@@ -40,7 +40,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@playwright/test": "^1.45.3",
-		"@rsbuild/core": "1.0.0-alpha.9",
+		"@rsbuild/core": "1.0.1-beta.10",
 		"@types/node": "^20.14.13",
 		"eslint": "^9.8.0",
 		"nano-staged": "^0.8.0",
@@ -50,7 +50,7 @@
 		"typescript": "^5.5.4"
 	},
 	"peerDependencies": {
-		"@rsbuild/core": "1.x",
+		"@rsbuild/core": "1.x || ^1.0.1-beta.0",
     "eslint": "^8.0.0 || ^9.0.0"
 	},
 	"peerDependenciesMeta": {
