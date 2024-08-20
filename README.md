@@ -2,7 +2,7 @@
 
 An Rsbuild plugin to run ESLint checks during the compilation.
 
-The plugin has integrated [eslint-webpack-plugin](https://www.npmjs.com/package/eslint-webpack-plugin) internally.
+The plugin has integrated [eslint-rspack-plugin](https://www.npmjs.com/package/eslint-rspack-plugin) internally.
 
 <p>
   <a href="https://npmjs.com/package/@rsbuild/plugin-eslint">
@@ -71,9 +71,9 @@ pluginEslint({
 
 ### eslintPluginOptions
 
-To modify the options of `eslint-webpack-plugin`, please refer to [eslint-webpack-plugin - README](https://github.com/webpack-contrib/eslint-webpack-plugin#readme) to learn about available options.
+To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/webpack-contrib/eslint-rspack-plugin#readme) to learn about available options.
 
-- **Type:** [Options](https://github.com/webpack-contrib/eslint-webpack-plugin/blob/master/types/options.d.ts)
+- **Type:** [Options](https://github.com/webpack-contrib/eslint-rspack-plugin/blob/master/types/options.d.ts)
 - **Default:**
 
 ```ts

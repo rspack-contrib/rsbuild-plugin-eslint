@@ -1,6 +1,6 @@
 import path from 'node:path';
 import type { RsbuildPlugin } from '@rsbuild/core';
-import type { Options } from 'eslint-webpack-plugin';
+import type { Options } from 'eslint-rspack-plugin';
 
 export type PluginEslintOptions = {
 	/**
@@ -9,8 +9,8 @@ export type PluginEslintOptions = {
 	 */
 	enable?: boolean;
 	/**
-	 * To modify the options of `eslint-webpack-plugin`.
-	 * @see https://github.com/webpack-contrib/eslint-webpack-plugin
+	 * To modify the options of `eslint-rspack-plugin`.
+	 * @see https://github.com/rspack-contrib/eslint-rspack-plugin
 	 */
 	eslintPluginOptions?: Options;
 };
@@ -37,7 +37,7 @@ export const pluginEslint = (
 				return;
 			}
 
-			const { default: ESLintPlugin } = await import('eslint-webpack-plugin');
+			const { default: ESLintPlugin } = await import('eslint-rspack-plugin');
 			const defaultOptions = {
 				extensions: ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts'],
 				exclude: [
