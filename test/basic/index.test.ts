@@ -38,7 +38,7 @@ test('should not throw error when the file is excluded', async () => {
 			],
 		},
 	});
-	await expect(rsbuild.build()).resolves.toEqual(undefined);
+	await expect(rsbuild.build()).resolves.toBeTruthy();
 });
 
 test('should not throw error when the ESLint plugin is not enabled', async () => {
@@ -53,5 +53,5 @@ test('should not throw error when the ESLint plugin is not enabled', async () =>
 		},
 	});
 
-	await expect(rsbuild.build()).resolves.toEqual(undefined);
+	await expect(rsbuild.build()).resolves.toBeTruthy();
 });
