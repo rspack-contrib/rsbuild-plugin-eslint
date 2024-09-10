@@ -1,6 +1,6 @@
 {
 	"name": "@rsbuild/plugin-eslint",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"repository": "https://github.com/rspack-contrib/rsbuild-plugin-eslint",
 	"license": "MIT",
 	"type": "module",
@@ -14,9 +14,7 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"dev": "tsup --watch",
@@ -34,31 +32,31 @@
 		]
 	},
 	"dependencies": {
-		"eslint-webpack-plugin": "^4.2.0",
-		"webpack": "^5.93.0"
+		"eslint-rspack-plugin": "^4.2.0",
+		"webpack": "^5.94.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
-		"@playwright/test": "^1.45.3",
-		"@rsbuild/core": "1.0.1-beta.10",
-		"@types/node": "^20.14.13",
-		"eslint": "^9.8.0",
+		"@playwright/test": "^1.46.1",
+		"@rsbuild/core": "^1.0.1",
+		"@types/node": "^20.16.2",
+		"eslint": "^9.9.1",
 		"nano-staged": "^0.8.0",
-		"playwright": "^1.45.3",
+		"playwright": "^1.46.1",
 		"simple-git-hooks": "^2.11.1",
-		"tsup": "^8.2.3",
+		"tsup": "^8.2.4",
 		"typescript": "^5.5.4"
 	},
 	"peerDependencies": {
 		"@rsbuild/core": "1.x || ^1.0.1-beta.0",
-    "eslint": "^8.0.0 || ^9.0.0"
+		"eslint": "^8.0.0 || ^9.0.0"
 	},
 	"peerDependenciesMeta": {
 		"@rsbuild/core": {
 			"optional": true
 		}
 	},
-	"packageManager": "pnpm@9.6.0",
+	"packageManager": "pnpm@9.9.0",
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org/"
