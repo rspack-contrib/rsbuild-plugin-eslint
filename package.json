@@ -1,6 +1,6 @@
 {
 	"name": "@rsbuild/plugin-eslint",
-	"version": "1.0.4-beta.1",
+	"version": "1.0.3",
 	"repository": "https://github.com/rspack-contrib/rsbuild-plugin-eslint",
 	"license": "MIT",
 	"type": "module",
@@ -21,8 +21,7 @@
 		"lint": "biome check .",
 		"lint:write": "biome check . --write",
 		"prepare": "simple-git-hooks && npm run build",
-		"test": "playwright test",
-		"bump": "npx bumpp"
+		"test": "playwright test"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npx nano-staged"
