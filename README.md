@@ -71,9 +71,9 @@ pluginEslint({
 
 ### eslintPluginOptions
 
-To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/webpack-contrib/eslint-rspack-plugin#readme) to learn about available options.
+To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/rspack-contrib/eslint-rspack-plugin#readme) to learn about available options.
 
-- **Type:** [Options](https://github.com/webpack-contrib/eslint-rspack-plugin/blob/master/types/options.d.ts)
+- **Type:** [Options](https://github.com/rspack-contrib/eslint-rspack-plugin/blob/master/types/options.d.ts)
 - **Default:**
 
 ```ts
