@@ -4,6 +4,8 @@ An Rsbuild plugin to run ESLint checks during the compilation.
 
 The plugin has integrated [eslint-rspack-plugin](https://www.npmjs.com/package/eslint-rspack-plugin) internally.
 
+> We do not recommend using the `@rsbuild/plugin-eslint` plugin, as running ESLint during the build process will significantly increase the build time. Instead, we recommend using a separate `lint` command to run ESLint checks.
+
 <p>
   <a href="https://npmjs.com/package/@rsbuild/plugin-eslint">
    <img src="https://img.shields.io/npm/v/@rsbuild/plugin-eslint?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" />
