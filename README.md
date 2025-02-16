@@ -14,6 +14,8 @@ The plugin has integrated [eslint-rspack-plugin](https://www.npmjs.com/package/e
   <a href="https://npmcharts.com/compare/@rsbuild/plugin-eslint?minimal=true"><img src="https://img.shields.io/npm/dm/@rsbuild/plugin-eslint.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="downloads" /></a>
 </p>
 
+<img width="1496" alt="Screenshot 2025-02-16 at 18 56 32" src="https://github.com/user-attachments/assets/ee4b1915-92ce-4032-834d-b2321f02f1d2" />
+
 ## Usage
 
 Install:
