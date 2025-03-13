@@ -23,7 +23,7 @@ test('should throw error when exist ESLint errors', async () => {
 			],
 		},
 	});
-	await expect(rsbuild.build()).rejects.toThrowError('build failed!');
+	await expect(rsbuild.build()).rejects.toThrowError('build failed');
 
 	expect(
 		logs.find((log) => log.includes(`'undefinedVar' is not defined`)),
