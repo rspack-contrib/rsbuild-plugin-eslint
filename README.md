@@ -74,6 +74,42 @@ pluginEslint({
 });
 ```
 
+### environments
+
+Control which environments to run ESLint on when using [Rsbuild's multi-environment builds](https://rsbuild.dev/guide/advanced/environments).
+
+- **Type:** `'all' | boolean | string[]`
+- **Default:** `false`
+- **Example:**
+
+By default, ESLint only runs on the first environment to avoid running multiple times:
+
+```js
+pluginEslint({
+  environments: false // (default)
+});
+```
+
+Run ESLint on all environments:
+
+```js
+pluginEslint({
+  environments: 'all',
+  // or
+  environments: true,
+});
+```
+
+Run ESLint on specific environments by name:
+
+```js
+pluginEslint({
+  environments: ['web', 'node'],
+});
+```
+
+This is useful when different environments have different entry points and you want to ensure all files are linted. Note that when set to `'all'` or `true`, ESLint will run separately for each environment, which may increase build time.
+
 ### eslintPluginOptions
 
 To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/rspack-contrib/eslint-rspack-plugin#readme) to learn about available options.

@@ -13,6 +13,14 @@ export type PluginEslintOptions = {
 	 * @see https://github.com/rspack-contrib/eslint-rspack-plugin
 	 */
 	eslintPluginOptions?: Options;
+	/**
+	 * Control which environments to run ESLint on.
+	 * - `false` or `undefined`: Only run on the first environment (default)
+	 * - `true` or `'all'`: Run on all environments
+	 * - `string[]`: Run on specific environments by name (e.g., ['web', 'node'])
+	 * @default false
+	 */
+	environments?: 'all' | boolean | string[];
 };
 
 export const PLUGIN_ESLINT_NAME = 'rsbuild:eslint';
@@ -23,7 +31,11 @@ export const pluginEslint = (
 	name: PLUGIN_ESLINT_NAME,
 
 	setup(api) {
-		const { enable = true, eslintPluginOptions } = options;
+		const {
+			enable = true,
+			eslintPluginOptions,
+			environments = false,
+		} = options;
 
 		if (!enable) {
 			return;
@@ -31,9 +43,19 @@ export const pluginEslint = (
 
 		api.modifyBundlerChain(async (chain, { environment }) => {
 			const { distPath } = environment;
-			// If there is multiple environment, only apply eslint plugin to the first target
-			// to avoid multiple eslint running at the same time
-			if (environment.index !== 0) {
+
+			const shouldRun = () => {
+				if (Array.isArray(environments)) {
+					return environments.includes(environment.name);
+				}
+
+				if (environments === true || environments === 'all') return true;
+				// If there is multiple environment, only apply eslint plugin to the first target
+				// to avoid multiple eslint running at the same time
+				return environment.index === 0;
+			};
+
+			if (!shouldRun()) {
 				return;
 			}
 
