@@ -33,7 +33,7 @@
 		]
 	},
 	"dependencies": {
-		"eslint-rspack-plugin": "^4.2.1"
+		"eslint-rspack-plugin": "^4.3.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
