@@ -10,7 +10,7 @@ export type PluginEslintOptions = {
 	enable?: boolean;
 	/**
 	 * To modify the options of `eslint-rspack-plugin`.
-	 * @see https://github.com/rspack-contrib/eslint-rspack-plugin
+	 * @see https://github.com/rstackjs/eslint-rspack-plugin
 	 */
 	eslintPluginOptions?: Options;
 	/**

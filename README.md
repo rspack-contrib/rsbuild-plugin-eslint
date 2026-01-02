@@ -37,8 +37,8 @@ export default {
 
 ## Example Projects
 
-- [React + ESLint project](https://github.com/rspack-contrib/rspack-examples/tree/main/rsbuild/react-eslint)
-- [Vue 3 + ESLint project](https://github.com/rspack-contrib/rspack-examples/tree/main/rsbuild/vue3-eslint)
+- [React + ESLint project](https://github.com/rstackjs/rspack-examples/tree/main/rsbuild/react-eslint)
+- [Vue 3 + ESLint project](https://github.com/rstackjs/rspack-examples/tree/main/rsbuild/vue3-eslint)
 
 ## Options
 
@@ -112,9 +112,9 @@ This is useful when different environments have different entry points and you w
 
 ### eslintPluginOptions
 
-To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/rspack-contrib/eslint-rspack-plugin#readme) to learn about available options.
+To modify the options of `eslint-rspack-plugin`, please refer to [eslint-rspack-plugin - README](https://github.com/rstackjs/eslint-rspack-plugin#readme) to learn about available options.
 
-- **Type:** [Options](https://github.com/rspack-contrib/eslint-rspack-plugin/blob/master/types/options.d.ts)
+- **Type:** [Options](https://github.com/rstackjs/eslint-rspack-plugin/blob/master/types/options.d.ts)
 - **Default:**
 
 ```ts
