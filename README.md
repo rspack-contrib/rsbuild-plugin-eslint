@@ -76,7 +76,7 @@ pluginEslint({
 
 ### environments
 
-Control which environments to run ESLint on when using [Rsbuild's multi-environment builds](https://rsbuild.dev/guide/advanced/environments).
+Control which environments to run ESLint on when using [Rsbuild's multi-environment builds](https://rsbuild.rs/guide/advanced/environments).
 
 - **Type:** `'all' | boolean | string[]`
 - **Default:** `false`
